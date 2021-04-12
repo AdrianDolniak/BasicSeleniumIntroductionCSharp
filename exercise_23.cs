@@ -20,6 +20,7 @@ namespace UnitTestProjectSelenium
 
             // Navigacja do strony
             driver.Navigate().GoToUrl("https://demos.telerik.com/kendo-ui/dragdrop/index");
+            driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             //Actions class method to drag and drop 
