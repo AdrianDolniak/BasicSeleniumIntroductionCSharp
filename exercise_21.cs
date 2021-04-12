@@ -22,10 +22,19 @@ namespace UnitTestProjectSelenium
             driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/windows");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
-            // Click on ’here’ button using JavaScriptExecuton, then check result in textbox
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("document.getElementById('redirect').click();");
-            Thread.Sleep(5000);
+            // Lokalizacja elementu i click
+            IWebElement start = driver.FindElement(By.CssSelector("#content > div > a"));
+            start.Click();
+
+            // Click link and get title new Tab
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            IWebElement text = driver.FindElement(By.ClassName("example"));
+            Console.WriteLine("New tab text:" + text.Text);
+
+            // Back to previusly Tab and get title 
+            driver.SwitchTo().Window(driver.WindowHandles.FirstOrDefault());
+            String TitleHome = driver.Title;
+            Console.WriteLine("Home tab title:" + TitleHome);
 
             // Zamkniecie przegladarki 
             driver.Quit();

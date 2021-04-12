@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="exercise_23.cs" />
+    <Compile Include="exercise_22.cs" />
     <Compile Include="exercise_21.cs" />
     <Compile Include="exercise_20.cs" />
     <Compile Include="exercise_19.cs" />
