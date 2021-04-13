@@ -21,7 +21,6 @@ namespace ProjectSeleniumPOM
         [SetUp]
         public void Start()
             {
-                driver = new ChromeDriver("D:\\Testing\\Visual Studio C # Testing\\");
                 driver.Url = "https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login";
                 driver.Manage().Window.Maximize();
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);

@@ -16,29 +16,22 @@ namespace ProjectSeleniumPOM
     public class AddNewUser
     {
         IWebDriver driver = new ChromeDriver();
-        [SetUp]
-        public void Start()
-        {
-            driver.Url = "https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login";
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        }
+
         [Test]
         public void AddNewUserTest()
         { 
             var login = new LoginPage(driver);
             var register = new RegisterPage(driver);
+            var start = new TestBase(driver);
+            var stop = new TestBase(driver);
+            start.Start();
             login.GoToRegisterPage();
             register.CreateNewUser("Adrian", "Dolniak", "adolniak", "12345");
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login"));
             IWebElement isUser = driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[1]"));
             Assert.AreEqual("Registration successful", isUser.Text);
-        }
-        [TearDown]
-        public void Stop()
-        {
-            driver.Quit();
+            stop.Stop();
         }
     }
 }
