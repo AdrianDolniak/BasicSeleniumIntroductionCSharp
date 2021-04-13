@@ -80,6 +80,12 @@
     <Compile Include="exercise_7.cs" />
     <Compile Include="exercise_6.cs" />
     <Compile Include="exercise_5.cs" />
+    <Compile Include="PageObjectPattern\PageObjects\RegisterPage.cs" />
+    <Compile Include="PageObjectPattern\TestBase.cs" />
+    <Compile Include="PageObjectPattern\PageObjects\LoginPage.cs" />
+    <Compile Include="PageObjectPattern\Tests\LoginWithWrongData.cs" />
+    <Compile Include="PageObjectPattern\Tests\AddNewUserAndLogin.cs" />
+    <Compile Include="PageObjectPattern\Tests\AddNewUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
