@@ -61,35 +61,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="exercise_23.cs" />
-    <Compile Include="exercise_22.cs" />
-    <Compile Include="exercise_21.cs" />
-    <Compile Include="exercise_20.cs" />
-    <Compile Include="exercise_19.cs" />
-    <Compile Include="exercise_18.cs" />
-    <Compile Include="exercise_17.cs" />
-    <Compile Include="exercise_16.cs" />
-    <Compile Include="exercise_15.cs" />
-    <Compile Include="exercise_14.cs" />
-    <Compile Include="exercise_13.cs" />
-    <Compile Include="exercise_12.cs" />
-    <Compile Include="exercise_11.cs" />
-    <Compile Include="exercise_10.cs" />
-    <Compile Include="exercise_9.cs" />
-    <Compile Include="exercise_8.cs" />
-    <Compile Include="exercise_7.cs" />
-    <Compile Include="exercise_6.cs" />
-    <Compile Include="exercise_5.cs" />
-    <Compile Include="PageObjectPattern\PageObjects\RegisterPage.cs" />
-    <Compile Include="PageObjectPattern\TestBase.cs" />
-    <Compile Include="PageObjectPattern\PageObjects\LoginPage.cs" />
-    <Compile Include="PageObjectPattern\Tests\LoginWithWrongData.cs" />
-    <Compile Include="PageObjectPattern\Tests\AddNewUserAndLogin.cs" />
-    <Compile Include="PageObjectPattern\Tests\AddNewUser.cs" />
+    <Compile Include="Exercise16.cs" />
+    <Compile Include="Exercise23.cs" />
+    <Compile Include="Exercise22.cs" />
+    <Compile Include="Exercise21.cs" />
+    <Compile Include="Exercise20.cs" />
+    <Compile Include="Exercise19.cs" />
+    <Compile Include="Exercise18.cs" />
+    <Compile Include="Exercise17.cs" />
+    <Compile Include="Exercise15.cs" />
+    <Compile Include="Exercise14.cs" />
+    <Compile Include="Exercise13.cs" />
+    <Compile Include="Exercise12.cs" />
+    <Compile Include="Exercise11.cs" />
+    <Compile Include="Exercise10.cs" />
+    <Compile Include="Exercise25POM\PageObjects\AccountPage.cs" />
+    <Compile Include="Exercise25POM\PageObjects\HomePage.cs" />
+    <Compile Include="Exercise25POM\PageObjects\LoginPage.cs" />
+    <Compile Include="Exercise25POM\PageObjects\RegisterPage.cs" />
+    <Compile Include="Exercise25POM\TestBase\TestBase.cs" />
+    <Compile Include="Exercise25POM\Tests\LogIn.cs" />
+    <Compile Include="Exercise25POM\Tests\PlaceOrder.cs" />
+    <Compile Include="Exercise25POM\Tests\CreateNewAcount.cs" />
+    <Compile Include="Exercise25POM\Tests\AddProductToCart.cs" />
+    <Compile Include="Exercise9.cs" />
+    <Compile Include="Exercise8.cs" />
+    <Compile Include="Exercise7.cs" />
+    <Compile Include="Exercise6.cs" />
+    <Compile Include="Exercise5.cs" />
+    <Compile Include="Exercise24POM\PageObjects\RegisterPage.cs" />
+    <Compile Include="Exercise24POM\TestBase\TestBase.cs" />
+    <Compile Include="Exercise24POM\PageObjects\LoginPage.cs" />
+    <Compile Include="Exercise24POM\Tests\LoginWithWrongData.cs" />
+    <Compile Include="Exercise24POM\Tests\AddNewUserAndLogin.cs" />
+    <Compile Include="Exercise24POM\Tests\AddNewUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

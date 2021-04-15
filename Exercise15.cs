@@ -1,0 +1,53 @@
+﻿// <copyright file="Exercise15.cs" company="AD">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+// <copyright file="Exercise15.cs" company="AD">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+namespace UnitTestProjectSelenium
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Interactions;
+    using OpenQA.Selenium.Support.UI;
+
+    /// <summary>
+    /// Exercise15 class.
+    /// </summary>
+    [TestClass]
+    public class Exercise15
+    {
+        /// <summary>
+        /// Metoda testowa SampleTestChromeMethod.
+        /// </summary>
+        [TestMethod]
+        public void SampleTestChromeMethod()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            // Navigacja do strony
+            driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/dynamic_loading/1");
+
+            // Lokalizacja elementu i click
+            IWebElement start = driver.FindElement(By.XPath("//*[@id='start']/button"));
+            start.Click();
+
+            // Explicity wait na załadowanie napisu
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.XPath("//*[@id='loading' and @style='display: none;']")));
+
+            // Asercja
+            IWebElement finish = driver.FindElement(By.XPath("//*[@id='finish']/h4"));
+            Assert.AreEqual("Hello World!", finish.Text);
+
+            // Zamkniecie przegladarki
+            driver.Quit();
+        }
+    }
+}
