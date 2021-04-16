@@ -2,10 +2,9 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace ProjectSeleniumPOM25
+namespace ProjectSeleniumPOM24
 {
     using System;
-    using System.Linq;
     using NUnit.Framework;
     using OpenQA.Selenium;
 

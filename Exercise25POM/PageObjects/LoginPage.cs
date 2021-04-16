@@ -38,11 +38,11 @@ namespace ProjectSeleniumPOM25
         /// <summary>
         /// Metoda Login.
         /// </summary>
-        /// <param name="emailadressnamelog">The username.</param>
+        /// <param name="emailaddressnamelog">The username.</param>
         /// <param name="passlog">The password.</param>
-        public void Login(string emailadressnamelog, string passlog)
+        public void Login(string emailaddressnamelog, string passlog)
         {
-            this.EmailAdressLog.SendKeys(emailadressnamelog);
+            this.EmailAdressLog.SendKeys(emailaddressnamelog);
             this.PassLog.SendKeys(passlog);
             this.SubmitLog.Click();
         }
@@ -50,10 +50,10 @@ namespace ProjectSeleniumPOM25
         /// <summary>
         /// Metoda GoToRegisterPage.
         /// </summary>
-        /// <param name="emailadressreg">The username.</param>
-        public void GoToRegisterPage(string emailadressreg)
+        /// <param name="emailaddressreg">The username.</param>
+        public void GoToRegisterPage(string emailaddressreg)
         {
-            this.EmailAdressReg.SendKeys(emailadressreg);
+            this.EmailAdressReg.SendKeys(emailaddressreg);
             this.SubmitReg.Click();
         }
     }

@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace ProjectSeleniumPOM
+namespace ProjectSeleniumPOM24
 {
     using System;
     using System.Collections.Generic;

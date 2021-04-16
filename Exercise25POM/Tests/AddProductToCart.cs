@@ -37,8 +37,8 @@ namespace ProjectSeleniumPOM25
             var signout = new HomePage(this.driver);
             var createEmail = new LoginPage(this.driver);
             var createNewUser = new RegisterPage(this.driver);
-            var clickTitle = new AccountPage(this.driver);
-            int randomInt = this.randomGenerator.Next(1000);
+            var clickTile = new OrderPage(this.driver);
+            int randomInt = this.randomGenerator.Next(10000);
             start.Start("http://automationpractice.com/index.php");
             signin.SignIn();
             createEmail.GoToRegisterPage("username" + randomInt + "@gmail.com");
@@ -48,10 +48,25 @@ namespace ProjectSeleniumPOM25
             wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
             IWebElement isUser = this.driver.FindElement(By.ClassName("account"));
             Assert.AreEqual("Adam Nowak", isUser.Text);
-            clickTitle.AddToCart();
+            clickTile.ClickOnTileTShirts();
 
-            // signout.SignOut();
-            // stop.Stop();
+            // add item to cart
+            Actions builder = new Actions(this.driver);
+            IWebElement quickview = this.driver.FindElement(By.XPath("//*[@id='center_column']/ul/li"));
+            IWebElement addtocart = this.driver.FindElement(By.XPath("//*[@id='center_column']/ul/li/div/div[2]/div[2]/a[1]/span"));
+            builder.MoveToElement(quickview).Perform();
+            builder.MoveToElement(addtocart).Click().Perform();
+            this.driver.SwitchTo().Window(this.driver.WindowHandles.Last());
+            IWebElement cross = this.driver.FindElement(By.ClassName("cross"));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.ClassName("cross")));
+            IWebElement isincart = this.driver.FindElement(By.XPath("//*[@id='layer_cart']/div[1]/div[2]/h2/span[2]"));
+
+            // assert if order is in the cart
+            Assert.AreEqual("There is 1 item in your cart.", isincart.Text);
+            Console.WriteLine("Expected: There is 1 item in your cart. \nActual: {0}", isincart.Text);
+            cross.Click();
+            signout.SignOut();
+            stop.Stop();
         }
     }
 }

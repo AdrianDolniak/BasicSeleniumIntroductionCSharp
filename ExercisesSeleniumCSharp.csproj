@@ -50,6 +50,9 @@
     <Reference Include="nunit.framework, Version=3.13.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -75,11 +78,11 @@
     <Compile Include="Exercise12.cs" />
     <Compile Include="Exercise11.cs" />
     <Compile Include="Exercise10.cs" />
-    <Compile Include="Exercise25POM\PageObjects\AccountPage.cs" />
+    <Compile Include="Exercise25POM\PageObjects\OrderPage.cs" />
     <Compile Include="Exercise25POM\PageObjects\HomePage.cs" />
     <Compile Include="Exercise25POM\PageObjects\LoginPage.cs" />
     <Compile Include="Exercise25POM\PageObjects\RegisterPage.cs" />
-    <Compile Include="Exercise25POM\TestBase\TestBase.cs" />
+    <Compile Include="Exercise25POM\TestBase.cs" />
     <Compile Include="Exercise25POM\Tests\LogIn.cs" />
     <Compile Include="Exercise25POM\Tests\PlaceOrder.cs" />
     <Compile Include="Exercise25POM\Tests\CreateNewAcount.cs" />
@@ -90,7 +93,7 @@
     <Compile Include="Exercise6.cs" />
     <Compile Include="Exercise5.cs" />
     <Compile Include="Exercise24POM\PageObjects\RegisterPage.cs" />
-    <Compile Include="Exercise24POM\TestBase\TestBase.cs" />
+    <Compile Include="Exercise24POM\TestBase.cs" />
     <Compile Include="Exercise24POM\PageObjects\LoginPage.cs" />
     <Compile Include="Exercise24POM\Tests\LoginWithWrongData.cs" />
     <Compile Include="Exercise24POM\Tests\AddNewUserAndLogin.cs" />
@@ -104,6 +107,7 @@
     <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -37,7 +37,7 @@ namespace ProjectSeleniumPOM25
             var signout = new HomePage(this.driver);
             var createEmail = new LoginPage(this.driver);
             var createNewUser = new RegisterPage(this.driver);
-            int randomInt = this.randomGenerator.Next(1000);
+            int randomInt = this.randomGenerator.Next(10000);
             start.Start("http://automationpractice.com/index.php");
             signin.SignIn();
             createEmail.GoToRegisterPage("username" + randomInt + "@gmail.com");

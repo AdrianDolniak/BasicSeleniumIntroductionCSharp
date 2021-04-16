@@ -62,13 +62,13 @@ namespace ProjectSeleniumPOM25
         /// <param name="day">The day of birth.</param>
         /// <param name="month">The month of birth.</param>
         /// <param name="year">The year of birth.</param>
-        /// <param name="adress"> Yhe Adress.</param>
+        /// <param name="address"> Yhe Adress.</param>
         /// <param name="city">The city.</param>
         /// <param name="state">The state.</param>
         /// <param name="postalcode">The postalcode.</param>
         /// <param name="country">The country.</param>
         /// <param name="mobilephone">The mobile phone number.</param>
-        public void CreateNewUser(string fname, string lname, string password, string day, string month, string year, string adress, string city, string state, string postalcode, string country, string mobilephone)
+        public void CreateNewUser(string fname, string lname, string password, string day, string month, string year, string address, string city, string state, string postalcode, string country, string mobilephone)
         {
             this.Title.Click();
             this.FName.SendKeys(fname);
@@ -77,7 +77,7 @@ namespace ProjectSeleniumPOM25
             this.DateofBirthDay.SendKeys(day);
             this.DateofBirthMonths.SendKeys(month);
             this.DateofBirthTears.SendKeys(year);
-            this.Address.SendKeys(adress);
+            this.Address.SendKeys(address);
             this.City.SendKeys(city);
             this.State.SendKeys(state);
             this.PostalCode.SendKeys(postalcode);

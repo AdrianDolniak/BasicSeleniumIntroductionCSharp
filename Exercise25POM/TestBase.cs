@@ -2,9 +2,10 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace ProjectSeleniumPOM
+namespace ProjectSeleniumPOM25
 {
     using System;
+    using System.Linq;
     using NUnit.Framework;
     using OpenQA.Selenium;
 
@@ -27,11 +28,11 @@ namespace ProjectSeleniumPOM
         /// <summary>
         /// Metoda Start.
         /// </summary>
-        /// <param name="urladress">The username.</param>
+        /// <param name="urladdress">The username.</param>
         [SetUp]
-        public void Start(string urladress)
+        public void Start(string urladdress)
             {
-            this.driver.Url = urladress;
+            this.driver.Url = urladdress;
             this.driver.Manage().Window.Maximize();
             this.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
