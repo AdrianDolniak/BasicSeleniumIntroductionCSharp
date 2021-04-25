@@ -16,14 +16,14 @@ namespace ProjectSeleniumPOM25Inheritance
     public class TestBase
     {
         /// <summary>
-        /// Inicjalizacja driver.
+        /// Gets or sets a new instance of Driver.
         /// </summary>
-        public static IWebDriver Driver;
+        public static IWebDriver Driver { get; set; }
 
         /// <summary>
-        /// Inicjalizacja driver.
+        /// Gets or sets a new instance of Random.
         /// </summary>
-        public static Random RandomGenerator;
+        public static Random RandomGenerator { get; set; }
 
         /// <summary>
         /// Metoda Start.

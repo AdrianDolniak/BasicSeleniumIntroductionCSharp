@@ -8,6 +8,7 @@ namespace ProjectSeleniumPOM24Inheritance
     using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Support.UI;
 
     /// <summary>
     /// TestBase class.
@@ -15,9 +16,14 @@ namespace ProjectSeleniumPOM24Inheritance
     public class TestBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TestBase"/> class.
+        /// Gets or sets a new instance of Driver.
         /// </summary>
-        public static IWebDriver Driver;
+        public static IWebDriver Driver { get;  set; }
+
+        /// <summary>
+        /// Gets or sets a new instance of Wait.
+        /// </summary>
+        public static WebDriverWait Wait { get; set; }
 
         /// <summary>
         /// Metoda Start.

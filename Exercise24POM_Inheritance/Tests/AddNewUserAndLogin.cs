@@ -22,8 +22,6 @@ namespace ProjectSeleniumPOM24Inheritance
     [TestClass]
     public class AddNewUserAndLogin : TestBase
     {
-        private static WebDriverWait wait;
-
         /// <summary>
         /// Metoda testowa AddNewUserAndLoginTest.
         /// </summary>
@@ -32,12 +30,12 @@ namespace ProjectSeleniumPOM24Inheritance
         {
             LoginPage.GoToRegisterPage();
             RegisterPage.CreateNewUser("Adrian", "Dolniak", "adolniak", "12345");
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login"));
+            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            Wait.Until(d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login"));
             LoginPage.Login("adolniak", "12345");
             IWebElement isUserLogged = Driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/h1"));
             Assert.AreEqual("Hi Adrian!", isUserLogged.Text);
-            wait.Until(d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/"));
+            Wait.Until(d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/"));
             LoginPage.LogOut();
             Stop();
         }
