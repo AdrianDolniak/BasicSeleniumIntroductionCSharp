@@ -28,16 +28,19 @@ namespace ProjectSeleniumPOM25Inheritance
         [Test]
         public void CreateNewAcountTest()
         {
-          int randomInt = RandomGenerator.Next(10000);
-          HomePage.SignIn();
-          LoginPage.GoToRegisterPage("username" + randomInt + "@gmail.com");
-          WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-          wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"));
-          RegisterPage.CreateNewUser("Adam", "Nowak", "12345", "1", "January", "2000", "somestreet", "somecity", "Texas", "11111", "United States", "123-456-789");
-          wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
-          IWebElement isUser = Driver.FindElement(By.ClassName("account"));
-          Assert.AreEqual("Adam Nowak", isUser.Text);
-          HomePage.SignOut();
+            // register user
+            int randomInt = RandomGenerator.Next(10000);
+            HomePage.SignIn();
+            LoginPage.GoToRegisterPage("username" + randomInt + "@gmail.com");
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"));
+            RegisterPage.CreateNewUser("Adam", "Nowak", "12345", "1", "January", "2000", "somestreet", "somecity", "Texas", "11111", "United States", "123-456-789");
+            wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
+
+            // asserst if user is registered
+            IWebElement isUser = Driver.FindElement(By.ClassName("account"));
+            Assert.AreEqual("Adam Nowak", isUser.Text);
+            HomePage.SignOut();
         }
     }
 }

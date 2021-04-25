@@ -28,13 +28,16 @@ namespace ProjectSeleniumPOM25Inheritance
         [Test]
         public void LogInTest()
         {
-           HomePage.SignIn();
-           LoginPage.Login("aaa@ob.pl", "12345");
-           WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-           wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
-           IWebElement isUser = Driver.FindElement(By.ClassName("account"));
-           Assert.AreEqual("ad ad", isUser.Text);
-           HomePage.SignOut();
+            // login user
+            HomePage.SignIn();
+            LoginPage.Login("aaa@ob.pl", "12345");
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
+
+            // assert if user is logged
+            IWebElement isUser = Driver.FindElement(By.ClassName("account"));
+            Assert.AreEqual("ad ad", isUser.Text);
+            HomePage.SignOut();
         }
     }
 }

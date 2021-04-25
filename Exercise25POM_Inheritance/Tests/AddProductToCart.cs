@@ -28,6 +28,7 @@ namespace ProjectSeleniumPOM25Inheritance
         [Test]
         public void AddProductToCartTest()
         {
+            // register user
             int randomInt = RandomGenerator.Next(10000);
             HomePage.SignIn();
             LoginPage.GoToRegisterPage("username" + randomInt + "@gmail.com");
@@ -37,20 +38,15 @@ namespace ProjectSeleniumPOM25Inheritance
             wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
             IWebElement isUser = Driver.FindElement(By.ClassName("account"));
             Assert.AreEqual("Adam Nowak", isUser.Text);
-            OrderPage.ClickOnTileTShirts();
 
             // add item to cart
-            Actions builder = new Actions(Driver);
-            IWebElement quickview = Driver.FindElement(By.XPath("//*[@id='center_column']/ul/li"));
-            IWebElement addtocart = Driver.FindElement(By.XPath("//*[@id='center_column']/ul/li/div/div[2]/div[2]/a[1]/span"));
-            builder.MoveToElement(quickview).Perform();
-            builder.MoveToElement(addtocart).Click().Perform();
+            OrderPage.ClickOnTileTShirts();
             Driver.SwitchTo().Window(Driver.WindowHandles.Last());
             IWebElement cross = Driver.FindElement(By.ClassName("cross"));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.ClassName("cross")));
-            IWebElement isincart = Driver.FindElement(By.XPath("//*[@id='layer_cart']/div[1]/div[2]/h2/span[2]"));
 
             // assert if order is in the cart
+            IWebElement isincart = Driver.FindElement(By.XPath("//*[@id='layer_cart']/div[1]/div[2]/h2/span[2]"));
             Assert.AreEqual("There is 1 item in your cart.", isincart.Text);
             Console.WriteLine("Expected: There is 1 item in your cart. \nActual: {0}", isincart.Text);
             cross.Click();
