@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.props" Condition="Exists('packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="packages\NUnit.3.13.1\build\NUnit.props" Condition="Exists('packages\NUnit.3.13.1\build\NUnit.props')" />
   <Import Project="packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props" Condition="Exists('packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props')" />
@@ -42,10 +43,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\MSTest.TestFramework.2.1.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+      <HintPath>packages\MSTest.TestFramework.2.2.3\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\MSTest.TestFramework.2.1.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+      <HintPath>packages\MSTest.TestFramework.2.2.3\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.13.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
@@ -78,6 +79,21 @@
     <Compile Include="Exercise12.cs" />
     <Compile Include="Exercise11.cs" />
     <Compile Include="Exercise10.cs" />
+    <Compile Include="Exercise24POM_Inheritance\PageObjects\LoginPage.cs" />
+    <Compile Include="Exercise24POM_Inheritance\PageObjects\RegisterPage.cs" />
+    <Compile Include="Exercise24POM_Inheritance\TestBase.cs" />
+    <Compile Include="Exercise24POM_Inheritance\Tests\AddNewUser.cs" />
+    <Compile Include="Exercise24POM_Inheritance\Tests\AddNewUserAndLogin.cs" />
+    <Compile Include="Exercise24POM_Inheritance\Tests\LoginWithWrongData.cs" />
+    <Compile Include="Exercise25POM_Inheritance\PageObjects\HomePage.cs" />
+    <Compile Include="Exercise25POM_Inheritance\PageObjects\LoginPage.cs" />
+    <Compile Include="Exercise25POM_Inheritance\PageObjects\OrderPage.cs" />
+    <Compile Include="Exercise25POM_Inheritance\PageObjects\RegisterPage.cs" />
+    <Compile Include="Exercise25POM_Inheritance\TestBase.cs" />
+    <Compile Include="Exercise25POM_Inheritance\Tests\AddProductToCart.cs" />
+    <Compile Include="Exercise25POM_Inheritance\Tests\CreateNewAcount.cs" />
+    <Compile Include="Exercise25POM_Inheritance\Tests\LogIn.cs" />
+    <Compile Include="Exercise25POM_Inheritance\Tests\PlaceOrder.cs" />
     <Compile Include="Exercise25POM\PageObjects\OrderPage.cs" />
     <Compile Include="Exercise25POM\PageObjects\HomePage.cs" />
     <Compile Include="Exercise25POM\PageObjects\LoginPage.cs" />
@@ -119,7 +135,10 @@
     <Error Condition="!Exists('packages\NUnit.3.13.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.13.1\build\NUnit.props'))" />
     <Error Condition="!Exists('packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('packages\Selenium.WebDriver.ChromeDriver.89.0.4389.2300\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.ChromeDriver.89.0.4389.2300\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.targets'))" />
   </Target>
   <Import Project="packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="packages\Selenium.WebDriver.ChromeDriver.89.0.4389.2300\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.ChromeDriver.89.0.4389.2300\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.targets" Condition="Exists('packages\MSTest.TestAdapter.2.2.3\build\net45\MSTest.TestAdapter.targets')" />
 </Project>
