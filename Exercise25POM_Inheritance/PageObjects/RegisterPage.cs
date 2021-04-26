@@ -43,7 +43,7 @@ namespace ProjectSeleniumPOM25Inheritance
         private static IWebElement SubmitCreate => Driver.FindElement(By.Id("submitAccount"));
 
         /// <summary>
-        /// Metoda Login.
+        /// Metoda CreateNewUser.
         /// </summary>
         /// <param name="fname">The first name.</param>
         /// <param name="lname">The last name.</param>

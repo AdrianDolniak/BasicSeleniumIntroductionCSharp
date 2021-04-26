@@ -23,7 +23,7 @@ namespace ProjectSeleniumPOM25Inheritance
     public class PlaceOrder : TestBase
     {
         /// <summary>
-        /// Metoda testowa AddProductToCartTest.
+        /// Metoda testowa PlaceOrderTest.
         /// </summary>
         [Test]
         public void PlaceOrderTest()

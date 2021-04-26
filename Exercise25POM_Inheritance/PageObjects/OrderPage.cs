@@ -48,7 +48,7 @@ namespace ProjectSeleniumPOM25Inheritance
         }
 
         /// <summary>
-        /// Metoda ClickOnTileWoman.
+        /// Metoda ClickOnTileDresses.
         /// </summary>
         public static void ClickOnTileDresses()
         {
