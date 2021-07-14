@@ -7,42 +7,43 @@ namespace ProjectSeleniumPOM24
     using System;
     using NUnit.Framework;
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Support.UI;
 
     /// <summary>
     /// TestBase class.
     /// </summary>
     public class TestBase
     {
-        private IWebDriver driver;
+        /// <summary>
+        /// Gets or sets a new instance of Driver.
+        /// </summary>
+        public static IWebDriver Driver { get;  set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TestBase"/> class.
+        /// Gets or sets a new instance of Wait.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
-        public TestBase(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        public static WebDriverWait Wait { get; set; }
 
         /// <summary>
         /// Metoda Start.
         /// </summary>
-        /// <param name="urladress">The username.</param>
         [SetUp]
-        public void Start(string urladress)
+        public static void Start()
             {
-            this.driver.Url = urladress;
-            this.driver.Manage().Window.Maximize();
-            this.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Driver = new ChromeDriver();
+            Driver.Url = "https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login";
+            Driver.Manage().Window.Maximize();
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
 
         /// <summary>
         /// Metoda Stop.
         /// </summary>
         [TearDown]
-        public void Stop()
+        public static void Stop()
             {
-            this.driver.Quit();
+            Driver.Quit();
         }
     }
 }

@@ -8,42 +8,43 @@ namespace ProjectSeleniumPOM25
     using System.Linq;
     using NUnit.Framework;
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
 
     /// <summary>
     /// TestBase class.
     /// </summary>
     public class TestBase
     {
-        private IWebDriver driver;
+        /// <summary>
+        /// Gets or sets a new instance of Driver.
+        /// </summary>
+        public static IWebDriver Driver { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TestBase"/> class.
+        /// Gets or sets a new instance of Random.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
-        public TestBase(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        public static Random RandomGenerator { get; set; }
 
         /// <summary>
         /// Metoda Start.
         /// </summary>
-        /// <param name="urladdress">The username.</param>
         [SetUp]
-        public void Start(string urladdress)
+        public static void Start()
             {
-            this.driver.Url = urladdress;
-            this.driver.Manage().Window.Maximize();
-            this.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Driver = new ChromeDriver();
+            RandomGenerator = new Random();
+            Driver.Url = "http://automationpractice.com/index.php";
+            Driver.Manage().Window.Maximize();
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             }
 
         /// <summary>
         /// Metoda Stop.
         /// </summary>
         [TearDown]
-        public void Stop()
+        public static void Stop()
             {
-            this.driver.Quit();
+            Driver.Quit();
         }
     }
 }

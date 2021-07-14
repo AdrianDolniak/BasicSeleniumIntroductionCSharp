@@ -12,28 +12,25 @@ namespace ProjectSeleniumPOM24
     /// <summary>
     /// LoginPage class.
     /// </summary>
-    public class LoginPage
+    public class LoginPage : PageBase
     {
-        private IWebDriver driver;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginPage"/> class.
+        /// Creating a constructor, using a constructor from the PageBase class.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
+        /// <param name="driver">Driver.</param>
         public LoginPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+    : base(driver) { }
 
-        private IWebElement UNameLog => this.driver.FindElement(By.Id("username"));
+        private IWebElement UNameLog => this.Driver.FindElement(By.Id("username"));
 
-        private IWebElement PassLog => this.driver.FindElement(By.Id("password"));
+        private IWebElement PassLog => this.Driver.FindElement(By.Id("password"));
 
-        private IWebElement SubmitLog => this.driver.FindElement(By.ClassName("form-actions"));
+        private IWebElement SubmitLog => this.Driver.FindElement(By.ClassName("form-actions"));
 
-        private IWebElement Register => this.driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/div/form/div[3]/a"));
+        private IWebElement Register => this.Driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/div/form/div[3]/a"));
 
-        private IWebElement Loguot => this.driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/p[3]/a"));
+        private IWebElement Loguot => this.Driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/p[3]/a"));
 
         /// <summary>
         /// Metoda Login.

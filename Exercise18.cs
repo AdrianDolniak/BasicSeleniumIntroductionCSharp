@@ -7,7 +7,7 @@ namespace UnitTestProjectSelenium
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
@@ -16,13 +16,12 @@ namespace UnitTestProjectSelenium
     /// <summary>
     /// Exercise15 class.
     /// </summary>
-    [TestClass]
     public class Exercise18
     {
         /// <summary>
         /// Metoda testowa SampleTestChromeMethod.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void SampleTestChromeMethod()
         {
             IWebDriver driver = new ChromeDriver();
@@ -32,7 +31,7 @@ namespace UnitTestProjectSelenium
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             // Click one of buttons, handle an event and check result in textbox
-            IWebElement alert = driver.FindElement(By.CssSelector("#content > div > ul > li:nth-child(1) > button"));
+            IWebElement alert = driver.FindElement(By.CssSelector("button[onclick='jsAlert()']"));
             alert.Click();
             driver.SwitchTo().Alert().Accept();
 

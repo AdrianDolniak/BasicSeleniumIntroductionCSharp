@@ -12,28 +12,25 @@ namespace ProjectSeleniumPOM25
     /// <summary>
     /// LoginPage class.
     /// </summary>
-    public class LoginPage
+    public class LoginPage : PageBase
     {
-        private IWebDriver driver;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginPage"/> class.
+        /// Creating a constructor, using a constructor from the PageBase class.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
+        /// <param name="driver">Driver.</param>
         public LoginPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+    : base(driver) { }
 
-        private IWebElement EmailAdressLog => this.driver.FindElement(By.Id("email"));
+        private IWebElement EmailAdressLog => this.Driver.FindElement(By.Id("email"));
 
-        private IWebElement PassLog => this.driver.FindElement(By.Id("passwd"));
+        private IWebElement PassLog => this.Driver.FindElement(By.Id("passwd"));
 
-        private IWebElement SubmitLog => this.driver.FindElement(By.Id("SubmitLogin"));
+        private IWebElement SubmitLog => this.Driver.FindElement(By.Id("SubmitLogin"));
 
-        private IWebElement EmailAdressReg => this.driver.FindElement(By.Id("email_create"));
+        private IWebElement EmailAdressReg => this.Driver.FindElement(By.Id("email_create"));
 
-        private IWebElement SubmitReg => this.driver.FindElement(By.Id("SubmitCreate"));
+        private IWebElement SubmitReg => this.Driver.FindElement(By.Id("SubmitCreate"));
 
         /// <summary>
         /// Metoda Login.

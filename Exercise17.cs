@@ -7,7 +7,7 @@ namespace UnitTestProjectSelenium
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
@@ -16,13 +16,12 @@ namespace UnitTestProjectSelenium
     /// <summary>
     /// Exercise15 class.
     /// </summary>
-    [TestClass]
     public class Exercise17
     {
         /// <summary>
         /// Metoda testowa SampleTestChromeMethod.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void SampleTestChromeMethod()
         {
             IWebDriver driver = new ChromeDriver();
@@ -32,7 +31,7 @@ namespace UnitTestProjectSelenium
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             // Rejestracja
-            IWebElement register = driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/div/form/div[3]/a"));
+            IWebElement register = driver.FindElement(By.CssSelector("a[href='#/register']"));
             register.Click();
             IWebElement fName = driver.FindElement(By.Id("firstName"));
             fName.SendKeys("Adrian");
@@ -56,11 +55,11 @@ namespace UnitTestProjectSelenium
             Thread.Sleep(5000);
 
             // Asercja
-            IWebElement isUser = driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/ul/li"));
+            IWebElement isUser = driver.FindElement(By.XPath("//*[contains(text(),'adriandolniak')]"));
             Assert.AreEqual("adriandolniak (Adrian Dolniak) - Delete", isUser.Text);
 
             // Wylogowanie
-            IWebElement loguot = driver.FindElement(By.CssSelector("body > div.jumbotron > div > div > div > p:nth-child(6) > a"));
+            IWebElement loguot = driver.FindElement(By.CssSelector("a[href='#/login']"));
             loguot.Click();
 
             // Zamkniecie przegladarki

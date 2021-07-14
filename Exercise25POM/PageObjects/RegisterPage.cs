@@ -12,49 +12,46 @@ namespace ProjectSeleniumPOM25
     /// <summary>
     /// RegisterPage class.
     /// </summary>
-    public class RegisterPage
+    public class RegisterPage : PageBase
     {
-        private IWebDriver driver;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RegisterPage"/> class.
+        /// Creating a constructor, using a constructor from the PageBase class.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
+        /// <param name="driver">Driver.</param>
         public RegisterPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+    : base(driver) { }
 
-        private IWebElement Title => this.driver.FindElement(By.Id("uniform-id_gender1"));
+        private IWebElement Title => this.Driver.FindElement(By.Id("uniform-id_gender1"));
 
-        private IWebElement FName => this.driver.FindElement(By.Id("customer_firstname"));
+        private IWebElement FName => this.Driver.FindElement(By.Id("customer_firstname"));
 
-        private IWebElement LName => this.driver.FindElement(By.Id("customer_lastname"));
+        private IWebElement LName => this.Driver.FindElement(By.Id("customer_lastname"));
 
-        private IWebElement Pass => this.driver.FindElement(By.Id("passwd"));
+        private IWebElement Pass => this.Driver.FindElement(By.Id("passwd"));
 
-        private IWebElement DateofBirthDay => this.driver.FindElement(By.Id("days"));
+        private IWebElement DateofBirthDay => this.Driver.FindElement(By.Id("days"));
 
-        private IWebElement DateofBirthMonths => this.driver.FindElement(By.Id("months"));
+        private IWebElement DateofBirthMonths => this.Driver.FindElement(By.Id("months"));
 
-        private IWebElement DateofBirthTears => this.driver.FindElement(By.Id("years"));
+        private IWebElement DateofBirthTears => this.Driver.FindElement(By.Id("years"));
 
-        private IWebElement Address => this.driver.FindElement(By.Id("address1"));
+        private IWebElement Address => this.Driver.FindElement(By.Id("address1"));
 
-        private IWebElement City => this.driver.FindElement(By.Id("city"));
+        private IWebElement City => this.Driver.FindElement(By.Id("city"));
 
-        private IWebElement State => this.driver.FindElement(By.Id("id_state"));
+        private IWebElement State => this.Driver.FindElement(By.Id("id_state"));
 
-        private IWebElement PostalCode => this.driver.FindElement(By.Id("postcode"));
+        private IWebElement PostalCode => this.Driver.FindElement(By.Id("postcode"));
 
-        private IWebElement Country => this.driver.FindElement(By.Id("id_country"));
+        private IWebElement Country => this.Driver.FindElement(By.Id("id_country"));
 
-        private IWebElement MobilePhone => this.driver.FindElement(By.Id("phone_mobile"));
+        private IWebElement MobilePhone => this.Driver.FindElement(By.Id("phone_mobile"));
 
-        private IWebElement SubmitCreate => this.driver.FindElement(By.Id("submitAccount"));
+        private IWebElement SubmitCreate => this.Driver.FindElement(By.Id("submitAccount"));
 
         /// <summary>
-        /// Metoda Login.
+        /// Metoda CreateNewUser.
         /// </summary>
         /// <param name="fname">The first name.</param>
         /// <param name="lname">The last name.</param>

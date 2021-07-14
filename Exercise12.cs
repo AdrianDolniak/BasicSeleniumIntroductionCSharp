@@ -7,7 +7,7 @@ namespace UnitTestProjectSelenium
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
@@ -16,13 +16,12 @@ namespace UnitTestProjectSelenium
     /// <summary>
     /// Exercise15 class.
     /// </summary>
-    [TestClass]
     public class Exercise12
     {
         /// <summary>
         /// Metoda testowa SampleTestChromeMethod.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void SampleTestChromeMethod()
         {
             IWebDriver driver = new ChromeDriver();
@@ -31,15 +30,15 @@ namespace UnitTestProjectSelenium
             driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/status_codes");
 
             // Lokalizacja elementu 200
-            IWebElement element = driver.FindElement(By.XPath("//*[@id='content']/div/ul/li[1]/a"));
+            IWebElement element = driver.FindElement(By.CssSelector("a[href='status_codes/200']"));
             element.Click();
 
             // Pobranie tekstu ze strony
-            IWebElement text = driver.FindElement(By.CssSelector("#content > div > h3"));
+            IWebElement text = driver.FindElement(By.CssSelector("#content>div"));
             Console.WriteLine(text.Text);
 
             // Assercja
-            Assert.AreEqual("Status Codes", text.Text);
+            Assert.AreEqual("Status Codes\r\nThis page returned a 200 status code.\r\n\r\nFor a definition and common list of HTTP status codes, go here", text.Text);
 
             // Zamkniecie przegladarki
             driver.Quit();

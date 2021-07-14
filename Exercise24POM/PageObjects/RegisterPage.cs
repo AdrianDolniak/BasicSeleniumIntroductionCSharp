@@ -12,28 +12,25 @@ namespace ProjectSeleniumPOM24
     /// <summary>
     /// RegisterPage class.
     /// </summary>
-    public class RegisterPage
+    public class RegisterPage : PageBase
     {
-        private IWebDriver driver;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RegisterPage"/> class.
+        /// Creating a constructor, using a constructor from the PageBase class.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
+        /// <param name="driver">Driver.</param>
         public RegisterPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+            : base(driver) { }
 
-        private IWebElement FName => this.driver.FindElement(By.Id("firstName"));
+        private IWebElement FName => this.Driver.FindElement(By.Id("firstName"));
 
-        private IWebElement LName => this.driver.FindElement(By.Id("Text1"));
+        private IWebElement LName => this.Driver.FindElement(By.Id("Text1"));
 
-        private IWebElement UName => this.driver.FindElement(By.Id("username"));
+        private IWebElement UName => this.Driver.FindElement(By.Id("username"));
 
-        private IWebElement Pass => this.driver.FindElement(By.Id("password"));
+        private IWebElement Pass => this.Driver.FindElement(By.Id("password"));
 
-        private IWebElement Submit => this.driver.FindElement(By.ClassName("form-actions"));
+        private IWebElement Submit => this.Driver.FindElement(By.ClassName("form-actions"));
 
         /// <summary>
         /// Metoda CreateNewUser.

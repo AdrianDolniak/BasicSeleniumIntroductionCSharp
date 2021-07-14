@@ -7,7 +7,7 @@ namespace UnitTestProjectSelenium
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
@@ -16,13 +16,12 @@ namespace UnitTestProjectSelenium
     /// <summary>
     /// Exercise15 class.
     /// </summary>
-    [TestClass]
     public class Exercise14
     {
         /// <summary>
         /// Metoda testowa SampleTestChromeMethod.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void SampleTestChromeMethod()
         {
             IWebDriver driver = new ChromeDriver();
@@ -43,6 +42,7 @@ namespace UnitTestProjectSelenium
             IWebElement elements = driver.FindElement(By.Id("multi-select"));
             SelectElement selects = new SelectElement(elements);
             selects.SelectByValue("California");
+            var selected = selects.SelectedOption.Text;
 
             IWebElement printMe = driver.FindElement(By.XPath("//*[@id='printMe']"));
             printMe.Click();
@@ -50,6 +50,7 @@ namespace UnitTestProjectSelenium
             // Asercja
             IWebElement multi = driver.FindElement(By.XPath(" //*[@id='easycont']/div/div[2]/div[2]/div[2]/p[2]"));
             Assert.AreEqual("First selected option is : California", multi.Text);
+            Assert.AreEqual("California", selected);
             Thread.Sleep(5000);
 
             // Zamkniecie przegladarki

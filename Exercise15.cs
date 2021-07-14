@@ -11,7 +11,7 @@ namespace UnitTestProjectSelenium
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
@@ -20,13 +20,12 @@ namespace UnitTestProjectSelenium
     /// <summary>
     /// Exercise15 class.
     /// </summary>
-    [TestClass]
     public class Exercise15
     {
         /// <summary>
         /// Metoda testowa SampleTestChromeMethod.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void SampleTestChromeMethod()
         {
             IWebDriver driver = new ChromeDriver();

@@ -12,22 +12,19 @@ namespace ProjectSeleniumPOM25
     /// <summary>
     /// HomePage class.
     /// </summary>
-    public class HomePage
+    public class HomePage : PageBase
     {
-        private IWebDriver driver;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="HomePage"/> class.
+        /// Creating a constructor, using a constructor from the PageBase class.
         /// </summary>
-        /// <param name="driver">The first name to join.</param>
+        /// <param name="driver">Driver.</param>
         public HomePage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+    : base(driver) { }
 
-        private IWebElement Signin => this.driver.FindElement(By.ClassName("login"));
+        private IWebElement Signin => this.Driver.FindElement(By.ClassName("login"));
 
-        private IWebElement Signout => this.driver.FindElement(By.ClassName("logout"));
+        private IWebElement Signout => this.Driver.FindElement(By.ClassName("logout"));
 
         /// <summary>
         /// Metoda SignIn.

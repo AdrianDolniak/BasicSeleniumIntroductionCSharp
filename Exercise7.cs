@@ -7,7 +7,7 @@ namespace UnitTestProjectSelenium
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Interactions;
@@ -16,13 +16,12 @@ namespace UnitTestProjectSelenium
     /// <summary>
     /// Exercise15 class.
     /// </summary>
-    [TestClass]
     public class Exercise7
     {
         /// <summary>
         /// Metoda testowa SampleTestChromeMethod.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void SampleTestChromeMethod()
         {
             IWebDriver driver = new ChromeDriver();
@@ -31,7 +30,7 @@ namespace UnitTestProjectSelenium
             driver.Navigate().GoToUrl("https://www.linkedin.com/");
 
             // Lokalizacja pola "Salaries”
-            IWebElement startPractisingCSS = driver.FindElement(By.CssSelector("#main-content > section:nth-child(8) > div > div > div:nth-child(2) > ul > li:nth-child(3) > a"));
+            IWebElement startPractisingCSS = driver.FindElement(By.CssSelector("[href='https://www.linkedin.com/salary/?trk=homepage-basic_directory_salaryHomeUrl']"));
 
             // Zamkniecie przegladarki
             driver.Quit();
