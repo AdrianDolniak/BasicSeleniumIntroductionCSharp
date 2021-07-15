@@ -20,7 +20,9 @@ namespace ProjectSeleniumPOM25
         /// </summary>
         /// <param name="driver">Driver.</param>
         public RegisterPage(IWebDriver driver)
-    : base(driver) { }
+            : base(driver)
+        {
+        }
 
         private IWebElement Title => this.Driver.FindElement(By.Id("uniform-id_gender1"));
 
@@ -49,6 +51,8 @@ namespace ProjectSeleniumPOM25
         private IWebElement MobilePhone => this.Driver.FindElement(By.Id("phone_mobile"));
 
         private IWebElement SubmitCreate => this.Driver.FindElement(By.Id("submitAccount"));
+
+        private IWebElement IsUser => this.Driver.FindElement(By.ClassName("account"));
 
         /// <summary>
         /// Metoda CreateNewUser.
@@ -81,6 +85,16 @@ namespace ProjectSeleniumPOM25
             this.Country.SendKeys(country);
             this.MobilePhone.SendKeys(mobilephone);
             this.SubmitCreate.Click();
+        }
+
+        /// <summary>
+        /// Metoda RegistrationSuccessful.
+        /// </summary>
+        /// <returns>Returns text.</returns>
+        public string RegistrationSuccessful()
+        {
+            var isUser = this.IsUser.Text;
+            return isUser;
         }
     }
 }

@@ -16,11 +16,12 @@ namespace ProjectSeleniumPOM24
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RegisterPage"/> class.
-        /// Creating a constructor, using a constructor from the PageBase class.
         /// </summary>
         /// <param name="driver">Driver.</param>
         public RegisterPage(IWebDriver driver)
-            : base(driver) { }
+            : base(driver)
+        {
+        }
 
         private IWebElement FName => this.Driver.FindElement(By.Id("firstName"));
 
@@ -31,6 +32,10 @@ namespace ProjectSeleniumPOM24
         private IWebElement Pass => this.Driver.FindElement(By.Id("password"));
 
         private IWebElement Submit => this.Driver.FindElement(By.ClassName("form-actions"));
+
+        private IWebElement IsUser => this.Driver.FindElement(By.CssSelector("[class='ng-binding ng-scope alert alert-success']"));
+
+        private IWebElement IsUserLogged => this.Driver.FindElement(By.CssSelector("h1[class='ng-binding ng-scope']"));
 
         /// <summary>
         /// Metoda CreateNewUser.
@@ -46,6 +51,26 @@ namespace ProjectSeleniumPOM24
             this.UName.SendKeys(uname);
             this.Pass.SendKeys(password);
             this.Submit.Submit();
+        }
+
+        /// <summary>
+        /// Metoda RegistrationSuccessful.
+        /// </summary>
+        /// <returns>Returns text.</returns>
+        public string RegistrationSuccessful()
+        {
+            var isUser = this.IsUser.Text;
+            return isUser;
+        }
+
+        /// <summary>
+        /// Metoda UserLogged.
+        /// </summary>
+        /// <returns>Returns text.</returns>
+        public string UserLogged()
+        {
+            var isUserLogged = this.IsUserLogged.Text;
+            return isUserLogged;
         }
     }
 }

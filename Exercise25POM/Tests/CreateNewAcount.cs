@@ -31,15 +31,16 @@ namespace ProjectSeleniumPOM25
             homePage.SignIn();
             var loginPage = new LoginPage(Driver);
             loginPage.GoToRegisterPage("username" + randomInt + "@gmail.com");
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"));
+            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            Wait.Until(
+                d => d.Url.Equals("http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation"));
             var registerPage = new RegisterPage(Driver);
             registerPage.CreateNewUser("Adam", "Nowak", "12345", "1", "January", "2000", "somestreet", "somecity", "Texas", "11111", "United States", "123-456-789");
-            wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
+            Wait.Until(
+                d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
 
             // asserst if user is registered
-            IWebElement isUser = Driver.FindElement(By.ClassName("account"));
-            Assert.AreEqual("Adam Nowak", isUser.Text);
+            Assert.AreEqual("Adam Nowak", registerPage.RegistrationSuccessful());
             homePage.SignOut();
         }
     }

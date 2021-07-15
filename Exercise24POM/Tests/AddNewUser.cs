@@ -30,9 +30,9 @@ namespace ProjectSeleniumPOM24
             var registerPage = new RegisterPage(Driver);
             registerPage.CreateNewUser("Adrian", "Dolniak", "adolniak", "12345");
             Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            Wait.Until(d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login"));
-            IWebElement isUser = Driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[1]"));
-            Assert.AreEqual("Registration successful", isUser.Text);
+            Wait.Until(
+                d => d.Url.Equals("https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login"));
+            Assert.AreEqual("Registration successful", registerPage.RegistrationSuccessful());
             Stop();
         }
     }

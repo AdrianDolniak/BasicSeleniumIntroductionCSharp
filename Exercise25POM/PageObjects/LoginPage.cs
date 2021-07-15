@@ -20,7 +20,9 @@ namespace ProjectSeleniumPOM25
         /// </summary>
         /// <param name="driver">Driver.</param>
         public LoginPage(IWebDriver driver)
-    : base(driver) { }
+            : base(driver)
+        {
+        }
 
         private IWebElement EmailAdressLog => this.Driver.FindElement(By.Id("email"));
 
@@ -35,12 +37,10 @@ namespace ProjectSeleniumPOM25
         /// <summary>
         /// Metoda Login.
         /// </summary>
-        /// <param name="emailaddressnamelog">The username.</param>
-        /// <param name="passlog">The password.</param>
-        public void Login(string emailaddressnamelog, string passlog)
+        public void Login()
         {
-            this.EmailAdressLog.SendKeys(emailaddressnamelog);
-            this.PassLog.SendKeys(passlog);
+            this.EmailAdressLog.SendKeys(this.UserEMail);
+            this.PassLog.SendKeys(this.Password);
             this.SubmitLog.Click();
         }
 

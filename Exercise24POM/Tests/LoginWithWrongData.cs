@@ -28,8 +28,7 @@ namespace ProjectSeleniumPOM24
             var loginPage = new LoginPage(Driver);
             loginPage.Login("adrian", "12345");
             Thread.Sleep(3000);
-            IWebElement isUserNotLogged = Driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[1]"));
-            Assert.AreEqual("Username or password is incorrect", isUserNotLogged.Text);
+            Assert.AreEqual("Username or password is incorrect", loginPage.UserNotLogged());
             Stop();
         }
     }

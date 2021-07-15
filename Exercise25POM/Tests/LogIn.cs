@@ -29,13 +29,14 @@ namespace ProjectSeleniumPOM25
             var homePage = new HomePage(Driver);
             homePage.SignIn();
             var loginPage = new LoginPage(Driver);
-            loginPage.Login("aaa@ob.pl", "12345");
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
+            loginPage.Login();
+            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            Wait.Until(
+                d => d.Url.Equals("http://automationpractice.com/index.php?controller=my-account"));
 
             // assert if user is logged
-            IWebElement isUser = Driver.FindElement(By.ClassName("account"));
-            Assert.AreEqual("ad ad", isUser.Text);
+            var registerPage = new RegisterPage(Driver);
+            Assert.AreEqual("ad ad", registerPage.RegistrationSuccessful());
             homePage.SignOut();
         }
     }

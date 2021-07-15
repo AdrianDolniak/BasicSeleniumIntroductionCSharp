@@ -20,7 +20,9 @@ namespace ProjectSeleniumPOM25
         /// </summary>
         /// <param name="driver">Driver.</param>
         public HomePage(IWebDriver driver)
-    : base(driver) { }
+            : base(driver)
+        {
+        }
 
         private IWebElement Signin => this.Driver.FindElement(By.ClassName("login"));
 
